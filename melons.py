@@ -91,3 +91,10 @@ class InternationalMelonOrder(AbstractMelonOrder):
     """An international (non-US) melon order."""
     tax = 0.17
     order_type = "international"
+
+    def get_total(self):
+        if self.qty < 10:
+            total = super().get_total() + 3
+        else:
+            total = super().get_total()
+        return total
